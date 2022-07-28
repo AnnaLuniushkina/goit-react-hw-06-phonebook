@@ -29,9 +29,10 @@ function ContactForm() {
         event.preventDefault();
 
         if (
-            contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())
-        ) {
+            contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
             return alert(`${name} is already in contact`);
+        } else if (contacts.find(contact => contact.number === number)) {
+            return alert(`${number} is already in contact`);
         }
 
         dispatch(addContact({ name, number }));
